@@ -60,7 +60,7 @@ open class SimpleVpnService : VpnService() {
             underlyingNetwork = network
         }
 
-        override fun onCapabilitiesChanged(network: Network, networkCapabilities: NetworkCapabilities?) {
+        override fun onCapabilitiesChanged(network: Network, networkCapabilities: NetworkCapabilities) {
             underlyingNetwork = network
         }
 

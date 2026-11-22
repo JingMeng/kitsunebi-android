@@ -19,8 +19,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
+import android.widget.ScrollView
+import android.widget.EditText
+import androidx.appcompat.widget.Toolbar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.json.JSONException
 import org.json.JSONObject
 import android.view.MotionEvent
@@ -31,6 +33,10 @@ import android.view.View
 
 
 class MainActivity : AppCompatActivity() {
+    private val fab: FloatingActionButton get() = findViewById(R.id.fab)
+    private val toolbar: Toolbar get() = findViewById(R.id.toolbar)
+    private val configView: EditText get() = findViewById(R.id.configView)
+    private val configScroll: ScrollView get() = findViewById(R.id.configScroll)
 
     var running = false
     private var starting = false

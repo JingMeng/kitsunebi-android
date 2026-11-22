@@ -10,7 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_logcat.*
+import android.widget.ScrollView
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -30,7 +30,7 @@ class LogcatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_logcat)
         logcatTextView = findViewById<TextView>(R.id.logcat_text)
-        logcatScroll.isSmoothScrollingEnabled = true
+        findViewById<ScrollView>(R.id.logcatScroll).isSmoothScrollingEnabled = true
 
         bgThread = object : Thread() {
             override fun run() {
@@ -80,7 +80,7 @@ class LogcatActivity : AppCompatActivity() {
             R.id.copy_btn -> {
                 val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 val clip: ClipData = ClipData.newPlainText("logcat text", logBuilder.toString())
-                clipboard.primaryClip = clip
+                clipboard.setPrimaryClip(clip)
                 return true
             }
             else -> super.onOptionsItemSelected(item)

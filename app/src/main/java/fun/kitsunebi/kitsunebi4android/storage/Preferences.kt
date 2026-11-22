@@ -17,9 +17,9 @@ open class Preferences {
             val sharedPref = context.getSharedPreferences(
                     context.getString(R.string.config_preference), Context.MODE_PRIVATE)
             if (default != null) {
-                return sharedPref.getString(k, default!!)
+                return sharedPref.getString(k, default) ?: default
             } else {
-                return sharedPref.getString(k, "")
+                return sharedPref.getString(k, "") ?: ""
             }
         }
 
